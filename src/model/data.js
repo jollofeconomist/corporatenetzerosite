@@ -45,7 +45,10 @@ const dataschema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  {
+    collection: "alldata",
+    timestamps: true,
+  }
 );
 
 const Data = mongoose.models.Data || mongoose.model("Data", dataschema);
