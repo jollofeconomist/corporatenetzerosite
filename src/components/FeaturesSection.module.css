@@ -1,0 +1,181 @@
+.features {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.scopesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.scopeCard {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.scopeCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.scopeIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.scopeNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.scopeTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.scopeDescription {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.scopeAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  color: #22c55e;
+  margin-bottom: 1.5rem;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .scopesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .scopeCard {
+    padding: 2rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .featureCard {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scopeCard,
+  .featureCard {
+    padding: 1.5rem;
+  }
+
+  .scopeIcon,
+  .featureIcon {
+    font-size: 2.5rem;
+  }
+
+  .scopeTitle,
+  .featureTitle {
+    font-size: 1.25rem;
+  }
+}
