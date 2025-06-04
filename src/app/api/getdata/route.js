@@ -7,7 +7,7 @@ export async function GET(request) {
     await connectToDatabase();
 
     const data = await Data.find().sort({ companyName: 1 });
-    console.log("DATA COUNT:", data.length);
+    //console.log("DATA COUNT:", data.length);
     return NextResponse.json(
       { data, message: "Data fetched successfully" },
       { status: 200 }

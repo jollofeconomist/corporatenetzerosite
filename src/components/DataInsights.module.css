@@ -1,0 +1,341 @@
+.dataInsights {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.dataInsights::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(34, 197, 94, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(59, 130, 246, 0.1) 0%,
+      transparent 50%
+    );
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.insightCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.insightCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.insightIcon {
+  font-size: 2.5rem;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.insightContent {
+  flex: 1;
+}
+
+.insightTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+}
+
+.insightValue {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.insightDescription {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.insightTrend {
+  font-size: 0.8rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.visualSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chartContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.chartTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+}
+
+.sectorChart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectorBar {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sectorBar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.sectorInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sectorName {
+  font-weight: 600;
+  color: white;
+}
+
+.sectorStats {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.imageContainer {
+  position: relative;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.dataImage {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .dataImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7),
+    rgba(34, 197, 94, 0.3)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageContainer:hover .imageOverlay {
+  opacity: 1;
+}
+
+.overlayContent {
+  text-align: center;
+  color: white;
+}
+
+.overlayContent h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.overlayContent p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ctaSection {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.exploreButton {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+  transition: all 0.3s ease;
+}
+
+.exploreButton:hover {
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
+}
+
+@media (max-width: 968px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dataInsights {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .insightCard {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .chartContainer {
+    padding: 1.5rem;
+  }
+
+  .sectorInfo {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .ctaSection {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .insightCard {
+    padding: 1rem;
+  }
+
+  .insightIcon {
+    font-size: 2rem;
+  }
+
+  .insightValue {
+    font-size: 1.5rem;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+  }
+}
