@@ -15,39 +15,22 @@ function Footer() {
   const footerLinks = [
     {
       title: "Platform",
-      links: [
-        { name: "Data Explore", href: "/data-explore" },
-        { name: "Company Profiles", href: "/companies" },
-        { name: "Sector Analysis", href: "/sectors" },
-        { name: "API Access", href: "/api" },
-      ],
+      links: [{ name: "Data Explore", href: "/data-explore" }],
     },
     {
       title: "Resources",
       links: [
         { name: "About Us", href: "/about-us" },
-        { name: "Methodology", href: "/methodology" },
-        { name: "Research Papers", href: "/research" },
-        { name: "Blog", href: "/blog" },
+        { name: "Admin Access", href: "/admin" },
       ],
     },
     {
       title: "Support",
-      links: [
-        { name: "Contact Us", href: "/contact-us" },
-        { name: "Help Center", href: "/help" },
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
-      ],
+      links: [{ name: "Contact Us", href: "/contact-us" }],
     },
   ];
 
-  const socialLinks = [
-    { icon: <FiTwitter />, href: "#", label: "Twitter" },
-    { icon: <FiLinkedin />, href: "#", label: "LinkedIn" },
-    { icon: <FiGithub />, href: "#", label: "GitHub" },
-    { icon: <FiGlobe />, href: "#", label: "Website" },
-  ];
+  const socialLinks = [{ icon: <FiGlobe />, href: "#", label: "Website" }];
 
   return (
     <footer className={styles.footer}>
@@ -150,17 +133,7 @@ function Footer() {
           <div className={styles.copyright}>
             <p>&copy; 2024 Corporate Food Net Zero. All rights reserved.</p>
           </div>
-          <div className={styles.bottomLinks}>
-            <Link href="/privacy" className={styles.bottomLink}>
-              Privacy
-            </Link>
-            <Link href="/terms" className={styles.bottomLink}>
-              Terms
-            </Link>
-            <Link href="/cookies" className={styles.bottomLink}>
-              Cookies
-            </Link>
-          </div>
+          <div className={styles.bottomLinks}></div>
         </motion.div>
       </div>
     </footer>

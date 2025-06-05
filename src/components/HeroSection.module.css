@@ -78,12 +78,13 @@
 }
 
 .subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 4vw, 1.25rem);
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  color: #0c0e0b;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.8),
+    0 1px 3px rgba(0, 0, 0, 1);
+  font-weight: 1000;
 }
 
 .ctaGroup {
@@ -114,7 +115,7 @@
 
 .secondaryButton {
   background: rgba(248, 250, 252, 0.703);
-  color: #50d816;
+  color: #0f100e;
   border: 2px solid rgba(248, 250, 252, 0.4);
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -156,11 +157,15 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
+.com {
+  color: #75da11;
+  font-weight: bold;
+}
 
 .statIcon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #fbbf24;
+  color: #2bae2f;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 

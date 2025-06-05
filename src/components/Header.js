@@ -72,6 +72,12 @@ function Header() {
             <Link href="/contact-us" className={styles.navLink}>
               Contact Us
             </Link>
+            <Link href="/contact-us" className={styles.navLink}>
+              Case study
+            </Link>
+            <Link href="/contact-us" className={styles.navLink}>
+              News
+            </Link>
           </motion.div>
         </nav>
 
