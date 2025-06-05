@@ -1,5 +1,5 @@
 .dataInsights {
-  padding: 6rem 0;
+  padding: 1rem 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   color: white;
   position: relative;
@@ -137,7 +137,8 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 4rem;
+  margin-right: -8rem;
 }
 
 .chartTitle {
@@ -153,10 +154,16 @@
   gap: 1rem;
 }
 
+.sectorRow {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+}
+
 .sectorBar {
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -192,6 +199,13 @@
   align-items: center;
   position: relative;
   z-index: 1;
+}
+
+.sectorStatsOutside {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
 }
 
 .sectorName {

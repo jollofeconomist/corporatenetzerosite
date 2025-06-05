@@ -90,6 +90,18 @@ export const CompanyDataProvider = ({ children }) => {
     const lastYear = years[years.length - 1];
     return lastYear;
   });
+  const sectorCounts = useMemo(() => {
+    const counts = {};
+
+    data.forEach((company) => {
+      const sector = company.sector;
+      if (sector) {
+        counts[sector] = (counts[sector] || 0) + 1;
+      }
+    });
+
+    return counts;
+  }, [data]);
 
   return (
     <CompanyDataContext.Provider
@@ -104,6 +116,7 @@ export const CompanyDataProvider = ({ children }) => {
         totalcountries,
         minyear,
         lastyear,
+        sectorCounts,
       }}
     >
       {children}

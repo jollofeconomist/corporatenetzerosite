@@ -62,15 +62,16 @@ function HeroSection() {
           animate="visible"
         >
           <motion.h1 className={styles.title} variants={itemVariants}>
-            Tracking Corporate Food Industry's
-            <span className={styles.highlight}> Net Zero Journey</span>
+            Tracking Global Corporate Food Industry's
+            <span className={styles.highlight}> Net Zero Commitments</span>
           </motion.h1>
 
           <motion.p className={styles.subtitle} variants={itemVariants}>
-            Discover how {totalCompanies} leading companies in the global food
-            industry are progressing towards their Net Zero emissions targets.
-            Get real-time insights, data-driven analysis, and transparent
-            reporting on corporate climate commitments.
+            Discover how <span className={styles.com}> {totalCompanies} </span>{" "}
+            leading companies in the global food industry are progressing
+            towards their Net Zero emissions targets. Get real-time insights,
+            data-driven analysis, and transparent reporting on corporate climate
+            commitments.
           </motion.p>
 
           <motion.div className={styles.ctaGroup} variants={itemVariants}>
@@ -122,7 +123,7 @@ function HeroSection() {
               <FiGlobe />
             </div>
             <div className={styles.statNumber}>{totalCompanies}</div>
-            <div className={styles.statLabel}>Leading Companies</div>
+            <div className={styles.statLabel}>Number of Companies</div>
             <div className={styles.statDescription}>
               Global food industry leaders
             </div>
@@ -137,7 +138,7 @@ function HeroSection() {
               <FiTarget />
             </div>
             <div className={styles.statNumber}>{totalNetZeroCompanies}</div>
-            <div className={styles.statLabel}>Have Net Zero Targets</div>
+            <div className={styles.statLabel}>Companys Net Zero Targets</div>
             <div className={styles.statDescription}>
               Committed to emissions reduction
             </div>

@@ -20,6 +20,8 @@ function DataInsights() {
     totalcountries,
     minyear,
     lastyear,
+    sectorCounts,
+    totalCompanies,
   } = useCompanyData();
   // const insights = [
   //   {
@@ -52,12 +54,41 @@ function DataInsights() {
   //   },
   // ];
 
+  function getPercentage(s) {
+    return (sectorCounts[s] / totalCompanies) * 100;
+  }
+
   const sectorData = [
-    { name: "Food & Beverage", percentage: 35, companies: 65 },
-    { name: "Animal Protein", percentage: 25, companies: 47 },
-    { name: "Agricultural Input", percentage: 20, companies: 37 },
-    { name: "Retail & Distribution", percentage: 12, companies: 22 },
-    { name: "Other Sectors", percentage: 8, companies: 16 },
+    {
+      name: "Food and Beverage",
+      percentage: getPercentage("Food and Beverage").toFixed(1),
+      companies: sectorCounts["Food and Beverage"] || 0,
+    },
+    {
+      name: "Animal Protein",
+      percentage: getPercentage("Animal Protein").toFixed(1),
+      companies: sectorCounts["Animal Protein"] || 0,
+    },
+    {
+      name: "Agricultural Input",
+      percentage: getPercentage("Agricultural Input").toFixed(1),
+      companies: sectorCounts["Agricultural Input"] || 0,
+    },
+    {
+      name: "Animal product and Commmodity",
+      percentage: getPercentage("Animal product and Commmodity").toFixed(1),
+      companies: sectorCounts["Animal product and Commmodity"] || 0,
+    },
+    {
+      name: "Restaurant and Food Services",
+      percentage: getPercentage("Restaurant and Food Services").toFixed(1),
+      companies: sectorCounts["Restaurant and Food Services"],
+    },
+    {
+      name: "Other Sectors",
+      percentage: getPercentage("Other Sectors").toFixed(1),
+      companies: sectorCounts["Other Sectors"] || 0,
+    },
   ];
 
   return (
@@ -119,7 +150,7 @@ function DataInsights() {
                 <div className={styles.insightTrend}>Global reach</div>
               </div>
             </motion.div>
-            <motion.div
+            {/* <motion.div
               className={styles.insightCard}
               whileHover={{ y: -3, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -135,7 +166,7 @@ function DataInsights() {
                 </p>
                 <div className={styles.insightTrend}>+5% monthly</div>
               </div>
-            </motion.div>
+            </motion.div> */}
             <motion.div
               className={styles.insightCard}
               whileHover={{ y: -3, scale: 1.02 }}
@@ -171,23 +202,42 @@ function DataInsights() {
                 Industry Sector Distribution
               </h3>
               <div className={styles.sectorChart}>
-                {sectorData.map((sector, index) => (
-                  <motion.div
-                    key={index}
-                    className={styles.sectorBar}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${sector.percentage * 2.5}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className={styles.sectorInfo}>
-                      <span className={styles.sectorName}>{sector.name}</span>
-                      <span className={styles.sectorStats}>
-                        {sector.companies} companies ({sector.percentage}%)
-                      </span>
+                {sectorData.map((sector, index) => {
+                  const isLowPercentage = parseFloat(sector.percentage) < 12;
+                  const barWidth = Math.min(
+                    parseFloat(sector.percentage) * 2.5,
+                    100
+                  );
+
+                  return (
+                    <div key={index} className={styles.sectorRow}>
+                      <motion.div
+                        className={styles.sectorBar}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${barWidth}%` }}
+                        transition={{ duration: 1, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className={styles.sectorInfo}>
+                          <span className={styles.sectorName}>
+                            {sector.name}
+                          </span>
+                          {!isLowPercentage && (
+                            <span className={styles.sectorStats}>
+                              {sector.companies} companies ({sector.percentage}
+                              %)
+                            </span>
+                          )}
+                        </div>
+                      </motion.div>
+                      {isLowPercentage && (
+                        <div className={styles.sectorStatsOutside}>
+                          {sector.companies} companies ({sector.percentage}%)
+                        </div>
+                      )}
                     </div>
-                  </motion.div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
