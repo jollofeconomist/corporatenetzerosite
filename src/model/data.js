@@ -25,6 +25,7 @@ const dataschema = new mongoose.Schema(
         "South America",
         "Africa",
         "Oceania",
+        "Australia",
       ],
 
       required: true,
@@ -42,7 +43,7 @@ const dataschema = new mongoose.Schema(
     scope: {
       type: String,
       enum: ["1", "2", "3"],
-      required: true,
+      required: false,
     },
   },
   {

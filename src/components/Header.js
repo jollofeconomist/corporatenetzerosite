@@ -144,6 +144,20 @@ function Header() {
               >
                 Contact Us
               </Link>
+              <Link
+                href="/contact-us"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+              >
+                Case study
+              </Link>
+              <Link
+                href="/contact-us"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+              >
+                News
+              </Link>
             </div>
           </motion.div>
         )}

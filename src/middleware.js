@@ -5,18 +5,33 @@ const { JWT_SECRET } = process.env;
 export async function middleware(request) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith("/api")) {
-    if (request.method === "GET") {
+  if (
+    pathname.startsWith("/api/data") ||
+    pathname.startsWith("/api/updatedata") ||
+    pathname.startsWith("/api/deletedata") ||
+    pathname === "/adddata"
+  ) {
+    if (request.method === "GET" && pathname.startsWith("/api/")) {
       return NextResponse.next();
     }
 
     const token = request.cookies.get("token")?.value;
 
     if (!token) {
-      return new NextResponse(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
+      if (pathname.startsWith("/api/")) {
+        return new NextResponse(
+          JSON.stringify({
+            error: "Authentication required",
+            message: "Please login to access this endpoint",
+          }),
+          {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+      }
+
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
 
     try {
@@ -27,10 +42,21 @@ export async function middleware(request) {
       console.error("JWT verification error:", error.message);
       console.error("Token:", token);
       console.error("JWT_SECRET available:", !!process.env.JWT_SECRET);
-      return new NextResponse(JSON.stringify({ error: "Invalid token" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
+
+      if (pathname.startsWith("/api/")) {
+        return new NextResponse(
+          JSON.stringify({
+            error: "Invalid token",
+            message: "Authentication token is invalid or expired",
+          }),
+          {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+      }
+
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
   }
 
@@ -45,5 +71,6 @@ export const config = {
     "/api/updatedata/:path*",
     "/api/deletedata",
     "/api/deletedata/:path*",
+    "/adddata",
   ],
 };

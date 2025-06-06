@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(224, 224, 222, 0.516);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(229, 231, 235, 0.3);
@@ -182,7 +182,7 @@
 
 /* Enhanced scroll effect */
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(205, 210, 201, 0.916);
   backdrop-filter: blur(25px) saturate(200%);
   -webkit-backdrop-filter: blur(25px) saturate(200%);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
