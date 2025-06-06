@@ -1,5 +1,6 @@
 "use client";
 
+import Loginform from "../../components/Loginform";
 export default function admin() {
-  return <h1>admin page</h1>;
+  return <Loginform />;
 }
