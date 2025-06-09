@@ -1,0 +1,322 @@
+.tableContainer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  table-layout: auto;
+}
+
+.tableHeader {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+}
+
+.tableHeaderCell {
+  padding: 1.5rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  position: relative;
+}
+
+.tableHeaderCell svg {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.tableRow {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.tableRow:hover {
+  background-color: rgba(34, 197, 94, 0.05);
+  transform: translateX(2px);
+}
+
+.tableCell {
+  padding: 1.2rem;
+  vertical-align: middle;
+}
+
+.companyInfo,
+.countryInfo,
+.targetInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.companyIcon,
+.countryIcon,
+.targetIcon {
+  font-size: 1.1rem;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.companyName {
+  font-weight: 600;
+  color: #1f2937;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.targetYear {
+  font-weight: 600;
+  color: #059669;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.noTarget {
+  color: #dc2626;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.viewMoreButton {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.viewMoreButton:hover {
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.3);
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.closeButton {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.closeButton:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: rotate(90deg);
+}
+
+.modalContent {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.modalField {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 0.3);
+  transition: all 0.3s ease;
+}
+
+.modalField:hover {
+  background: rgba(34, 197, 94, 0.05);
+  border-color: rgba(34, 197, 94, 0.2);
+  transform: translateY(-1px);
+}
+
+.fieldIcon {
+  font-size: 1.3rem;
+  color: #22c55e;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.modalField div {
+  flex: 1;
+}
+
+.modalField label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.modalField span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.hasTarget {
+  color: #059669 !important;
+  font-weight: 600 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tableContainer {
+    border-radius: 16px;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .tableHeaderCell {
+    padding: 1rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .tableCell {
+    padding: 1rem 0.8rem;
+  }
+
+  .companyName {
+    max-width: 150px;
+  }
+
+  .viewMoreButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .modal {
+    margin: 1rem;
+    max-height: 90vh;
+  }
+
+  .modalHeader {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .modalContent {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .modalGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableHeaderCell {
+    padding: 0.8rem 0.6rem;
+  }
+
+  .tableCell {
+    padding: 0.8rem 0.6rem;
+  }
+
+  .companyInfo,
+  .countryInfo,
+  .targetInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .companyName {
+    max-width: 120px;
+  }
+
+  .viewMoreButton {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .modalField {
+    padding: 0.8rem;
+  }
+}

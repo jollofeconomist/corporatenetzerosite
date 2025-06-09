@@ -15,7 +15,6 @@ function DataManagement() {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
-  // Check authentication status
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -59,7 +58,6 @@ function DataManagement() {
       const data = await response.json();
       setCompanies(data.data || []);
     } catch (err) {
-      console.error("Error fetching companies:", err);
       setError("Failed to load companies data");
     } finally {
       setIsLoading(false);

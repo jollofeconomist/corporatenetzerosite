@@ -5,6 +5,14 @@ import Data from "../../../model/data";
 export async function GET(request) {
   try {
     await connectToDatabase();
+    // const { searchParams } = new URL(request.url);
+
+    // const page = parseInt(searchParams.get("page")) || 1;
+    // const limit = parseInt(searchParams.get("limit")) || 10;
+
+    // const skip = (page - 1) * limit;
+    // const filters = {};
+    // const totalCount = await Data.countDocuments(filters);
 
     const data = await Data.find().sort({ companyName: 1 });
     //console.log("DATA COUNT:", data.length);
