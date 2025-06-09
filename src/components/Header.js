@@ -63,7 +63,7 @@ function Header() {
             <Link href="/" className={styles.navLink}>
               Home
             </Link>
-            <Link href="/data-explore" className={styles.navLink}>
+            <Link href="/Dataexplorer" className={styles.navLink}>
               Data Explore
             </Link>
             <Link href="/about-us" className={styles.navLink}>
@@ -124,7 +124,7 @@ function Header() {
                 Home
               </Link>
               <Link
-                href="/data-explore"
+                href="Dataexplorer"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
               >
