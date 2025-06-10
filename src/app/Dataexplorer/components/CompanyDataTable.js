@@ -211,7 +211,6 @@ export default function CompanyDataTable({
 }) {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pageChangeNotification, setPageChangeNotification] = useState(null);
 
   const handleViewMore = useCallback((company) => {
     setSelectedCompany(company);
@@ -225,20 +224,9 @@ export default function CompanyDataTable({
 
   const handleLimitChange = useCallback(
     (newLimit) => {
-      const currentTotalPages = paginationData?.totalPages || 1;
-      const newTotalPages =
-        Math.ceil((paginationData?.totalDocs || 0) / newLimit) || 1;
-
-      if (page > newTotalPages && newTotalPages < currentTotalPages) {
-        setPageChangeNotification(
-          `Showing ${newLimit} items per page. Redirected to page ${newTotalPages}.`
-        );
-        setTimeout(() => setPageChangeNotification(null), 1000);
-      }
-
       onlimit(newLimit);
     },
-    [page, paginationData, onlimit]
+    [onlimit]
   );
 
   const companyRows = useMemo(() => {
@@ -331,22 +319,6 @@ export default function CompanyDataTable({
       </div>
 
       {/* Page Change Notification */}
-      <AnimatePresence>
-        {pageChangeNotification && (
-          <motion.div
-            className={styles.notification}
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className={styles.notificationContent}>
-              <FiTarget className={styles.notificationIcon} />
-              <span>{pageChangeNotification}</span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <CompanyModal
         company={selectedCompany}

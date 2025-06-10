@@ -1,6 +1,6 @@
 .dataInsights {
   padding: 1rem 0;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background: linear-gradient(135deg, #578a3d 0%, #344663 50%, #368041 100%);
   color: white;
   position: relative;
   overflow: hidden;
@@ -351,5 +351,12 @@
 
   .chartContainer {
     padding: 1rem;
+  }
+  .sectorBar {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    position: relative;
+    overflow: hidden;
   }
 }

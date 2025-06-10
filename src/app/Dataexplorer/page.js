@@ -356,10 +356,8 @@ export default function Dataexplorer() {
   const handlelimit = (newLimit) => {
     setcompany(newLimit);
 
-    // Calculate what the new total pages would be with the new limit
     const newTotalPages = Math.ceil(paginationData.totalDocs / newLimit) || 1;
 
-    // If current page would be invalid with new limit, redirect to last valid page
     if (selectedPage > newTotalPages) {
       setSelectedPage(newTotalPages);
     }
