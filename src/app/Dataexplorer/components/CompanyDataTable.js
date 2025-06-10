@@ -10,6 +10,8 @@ import {
   FiDollarSign,
   FiMapPin,
   FiLayers,
+  FiChevronLeft,
+  FiChevronRight,
 } from "react-icons/fi";
 import { FaBuilding } from "react-icons/fa";
 import styles from "./CompanyDataTable.module.css";
@@ -82,124 +84,134 @@ const CompanyModal = memo(({ company, isOpen, onClose }) => {
   if (!company) return null;
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          className={styles.modalOverlay}
-          variants={overlayVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          onClick={onClose}
-        >
+    <>
+      <AnimatePresence>
+        {isOpen && (
           <motion.div
-            className={styles.modal}
-            variants={modalVariants}
+            className={styles.modalOverlay}
+            variants={overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={(e) => e.stopPropagation()}
+            onClick={onClose}
           >
-            <div className={styles.modalHeader}>
-              <h2 className={styles.modalTitle}>
-                <FaBuilding />
-                {company.companyName}
-              </h2>
-              <motion.button
-                className={styles.closeButton}
-                onClick={onClose}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiX />
-              </motion.button>
-            </div>
+            <motion.div
+              className={styles.modal}
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={styles.modalHeader}>
+                <h2 className={styles.modalTitle}>
+                  <FaBuilding />
+                  {company.companyName}
+                </h2>
+                <motion.button
+                  className={styles.closeButton}
+                  onClick={onClose}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FiX />
+                </motion.button>
+              </div>
 
-            <div className={styles.modalContent}>
-              <div className={styles.modalGrid}>
-                <div className={styles.modalField}>
-                  <FiLayers className={styles.fieldIcon} />
-                  <div>
-                    <label>Sector</label>
-                    <span>{company.sector}</span>
-                  </div>
-                </div>
-
-                <div className={styles.modalField}>
-                  <FiMapPin className={styles.fieldIcon} />
-                  <div>
-                    <label>Country</label>
-                    <span>{company.country}</span>
-                  </div>
-                </div>
-
-                <div className={styles.modalField}>
-                  <FiGlobe className={styles.fieldIcon} />
-                  <div>
-                    <label>Continent</label>
-                    <span>{company.continent}</span>
-                  </div>
-                </div>
-
-                <div className={styles.modalField}>
-                  <FiTarget className={styles.fieldIcon} />
-                  <div>
-                    <label>Net Zero Target</label>
-                    <span
-                      className={
-                        company.netzero ? styles.hasTarget : styles.noTarget
-                      }
-                    >
-                      {company.netzero ? "Yes" : "No"}
-                    </span>
-                  </div>
-                </div>
-
-                {company.netzero && (
-                  <>
-                    <div className={styles.modalField}>
-                      <FiCalendar className={styles.fieldIcon} />
-                      <div>
-                        <label>Target Year</label>
-                        <span>{company.targetyear || "Not specified"}</span>
-                      </div>
+              <div className={styles.modalContent}>
+                <div className={styles.modalGrid}>
+                  <div className={styles.modalField}>
+                    <FiLayers className={styles.fieldIcon} />
+                    <div>
+                      <label>Sector</label>
+                      <span>{company.sector}</span>
                     </div>
+                  </div>
 
-                    <div className={styles.modalField}>
-                      <FiLayers className={styles.fieldIcon} />
-                      <div>
-                        <label>Scope</label>
-                        <span>{company.scope || "Not specified"}</span>
-                      </div>
+                  <div className={styles.modalField}>
+                    <FiMapPin className={styles.fieldIcon} />
+                    <div>
+                      <label>Country</label>
+                      <span>{company.country}</span>
                     </div>
-                  </>
-                )}
+                  </div>
 
-                <div className={styles.modalField}>
-                  <FiDollarSign className={styles.fieldIcon} />
-                  <div>
-                    <label>Annual Revenue</label>
-                    <span>
-                      {company.companyyearrevenue
-                        ? `$${Number(
-                            company.companyyearrevenue
-                          ).toLocaleString()}`
-                        : "Not disclosed"}
-                    </span>
+                  <div className={styles.modalField}>
+                    <FiGlobe className={styles.fieldIcon} />
+                    <div>
+                      <label>Continent</label>
+                      <span>{company.continent}</span>
+                    </div>
+                  </div>
+
+                  <div className={styles.modalField}>
+                    <FiTarget className={styles.fieldIcon} />
+                    <div>
+                      <label>Net Zero Target</label>
+                      <span
+                        className={
+                          company.netzero ? styles.hasTarget : styles.noTarget
+                        }
+                      >
+                        {company.netzero ? "Yes" : "No"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {company.netzero && (
+                    <>
+                      <div className={styles.modalField}>
+                        <FiCalendar className={styles.fieldIcon} />
+                        <div>
+                          <label>Target Year</label>
+                          <span>{company.targetyear || "Not specified"}</span>
+                        </div>
+                      </div>
+
+                      <div className={styles.modalField}>
+                        <FiLayers className={styles.fieldIcon} />
+                        <div>
+                          <label>Scope</label>
+                          <span>{company.scope || "Not specified"}</span>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  <div className={styles.modalField}>
+                    <FiDollarSign className={styles.fieldIcon} />
+                    <div>
+                      <label>Annual Revenue</label>
+                      <span>
+                        {company.companyyearrevenue
+                          ? `$${Number(
+                              company.companyyearrevenue
+                            ).toLocaleString()}`
+                          : "Not disclosed"}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </>
   );
 });
 
-export default function CompanyDataTable({ companies }) {
+export default function CompanyDataTable({
+  companies,
+  onpage,
+  onlimit,
+  page,
+  limit,
+  paginationData,
+}) {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pageChangeNotification, setPageChangeNotification] = useState(null);
 
   const handleViewMore = useCallback((company) => {
     setSelectedCompany(company);
@@ -211,7 +223,24 @@ export default function CompanyDataTable({ companies }) {
     setSelectedCompany(null);
   }, []);
 
-  // Memoized company rows for performance
+  const handleLimitChange = useCallback(
+    (newLimit) => {
+      const currentTotalPages = paginationData?.totalPages || 1;
+      const newTotalPages =
+        Math.ceil((paginationData?.totalDocs || 0) / newLimit) || 1;
+
+      if (page > newTotalPages && newTotalPages < currentTotalPages) {
+        setPageChangeNotification(
+          `Showing ${newLimit} items per page. Redirected to page ${newTotalPages}.`
+        );
+        setTimeout(() => setPageChangeNotification(null), 1000);
+      }
+
+      onlimit(newLimit);
+    },
+    [page, paginationData, onlimit]
+  );
+
   const companyRows = useMemo(() => {
     return companies.map((company, index) => (
       <CompanyRow
@@ -222,6 +251,8 @@ export default function CompanyDataTable({ companies }) {
       />
     ));
   }, [companies, handleViewMore]);
+
+  const limitOptions = [10, 20, 30, 50, 100];
 
   return (
     <>
@@ -247,6 +278,75 @@ export default function CompanyDataTable({ companies }) {
           <tbody>{companyRows}</tbody>
         </table>
       </div>
+
+      <div className={styles.paginationContainer}>
+        <div className={styles.paginationGroup}>
+          <label className={styles.paginationLabel}>Companies per page:</label>
+          <select
+            className={styles.paginationSelect}
+            value={limit}
+            onChange={(e) => handleLimitChange(Number(e.target.value))}
+          >
+            {limitOptions.map((limitNum) => (
+              <option key={limitNum} value={limitNum}>
+                {limitNum}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.pageNavigation}>
+          <motion.button
+            className={styles.pageNavButton}
+            onClick={() => onpage(page - 1)}
+            disabled={page <= 1}
+            whileHover={{ scale: page > 1 ? 1.05 : 1 }}
+            whileTap={{ scale: page > 1 ? 0.95 : 1 }}
+            title="Previous page"
+          >
+            <FiChevronLeft />
+          </motion.button>
+
+          <div className={styles.pageInfo}>
+            <span className={styles.currentPage}>
+              Page {page} of {paginationData?.totalPages || 1}
+            </span>
+          </div>
+
+          <motion.button
+            className={styles.pageNavButton}
+            onClick={() => onpage(page + 1)}
+            disabled={page >= (paginationData?.totalPages || 1)}
+            whileHover={{
+              scale: page < (paginationData?.totalPages || 1) ? 1.05 : 1,
+            }}
+            whileTap={{
+              scale: page < (paginationData?.totalPages || 1) ? 0.95 : 1,
+            }}
+            title="Next page"
+          >
+            <FiChevronRight />
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Page Change Notification */}
+      <AnimatePresence>
+        {pageChangeNotification && (
+          <motion.div
+            className={styles.notification}
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={styles.notificationContent}>
+              <FiTarget className={styles.notificationIcon} />
+              <span>{pageChangeNotification}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <CompanyModal
         company={selectedCompany}
