@@ -302,13 +302,24 @@ export default function Dataexplorer() {
   const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("data");
+  const [selectedPage, setSelectedPage] = useState(1);
+  const [company, setcompany] = useState(10);
+  const [paginationData, setPaginationData] = useState({
+    totalDocs: 0,
+    totalPages: 0,
+    currentPage: 1,
+    currentLimit: 10,
+  });
 
   const fetchCompanies = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/getdata?page=2&limit=10", {
-        method: "GET",
-      });
+      const res = await fetch(
+        `/api/getdata/paginated?page=${selectedPage}&limit=${company}`,
+        {
+          method: "GET",
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Failed to fetch company data");
@@ -316,16 +327,43 @@ export default function Dataexplorer() {
 
       const data = await res.json();
       setCompanies(data.data);
+      setPaginationData({
+        totalDocs: data.totalDocs,
+        totalPages: data.totalPages,
+        currentPage: data.page,
+        currentLimit: data.limit,
+      });
+
+      // Update state if API returns different page/limit (e.g., fallback to last page)
+      if (data.page !== selectedPage) {
+        setSelectedPage(data.page);
+      }
     } catch (err) {
       console.error("Failed to load companies data:", err);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [selectedPage, company]);
 
   useEffect(() => {
     fetchCompanies();
   }, [fetchCompanies]);
+
+  const handlePageChange = (newPage) => {
+    setSelectedPage(newPage);
+  };
+
+  const handlelimit = (newLimit) => {
+    setcompany(newLimit);
+
+    // Calculate what the new total pages would be with the new limit
+    const newTotalPages = Math.ceil(paginationData.totalDocs / newLimit) || 1;
+
+    // If current page would be invalid with new limit, redirect to last valid page
+    if (selectedPage > newTotalPages) {
+      setSelectedPage(newTotalPages);
+    }
+  };
 
   if (loading) {
     return (
@@ -359,7 +397,8 @@ export default function Dataexplorer() {
           transition={{ duration: 0.6 }}
         >
           <p className={styles.subtitle}>
-            Explore {companies.length} companies and their Net Zero commitments
+            Explore {paginationData.totalDocs} companies and their Net Zero
+            commitments
           </p>
         </motion.div>
 
@@ -375,7 +414,14 @@ export default function Dataexplorer() {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6 }}
             >
-              <CompanyDataTable companies={companies} />
+              <CompanyDataTable
+                companies={companies}
+                onpage={handlePageChange}
+                onlimit={handlelimit}
+                page={selectedPage}
+                limit={company}
+                paginationData={paginationData}
+              />
             </motion.div>
           )}
 
