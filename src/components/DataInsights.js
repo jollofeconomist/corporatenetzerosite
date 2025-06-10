@@ -243,7 +243,7 @@ function DataInsights() {
 
             <div className={styles.imageContainer}>
               <Image
-                src="/asset/img3.jpg"
+                src="/asset/im12.jpg"
                 alt="Data visualization"
                 fill
                 className={styles.dataImage}
