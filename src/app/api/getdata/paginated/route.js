@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "../../../../lib/db";
 import Data from "../../../../model/data";
+import { getSearchFilter } from "../../../../lib/getSearchFilter";
 
 export async function GET(request) {
   try {
     await connectToDatabase();
     const { searchParams } = new URL(request.url);
+    const searchQuery = searchParams.get("search") || "";
+    const filter = getSearchFilter(searchQuery);
 
     let page = parseInt(searchParams.get("page")) || 1;
     let limit = parseInt(searchParams.get("limit")) || 10;
@@ -19,11 +22,13 @@ export async function GET(request) {
     page = Math.min(page, totalPages);
 
     const skip = (page - 1) * limit;
-    const data = await Data.find().skip(skip).limit(limit);
+    const data = await Data.find(filter).skip(skip).limit(limit);
+    const totalvaleachpage = data.length;
 
     return NextResponse.json(
       {
         data,
+        totalvaleachpage,
         page,
         limit,
         totalDocs,
