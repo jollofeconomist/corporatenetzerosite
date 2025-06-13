@@ -71,6 +71,16 @@ export const CompanyDataProvider = ({ children }) => {
     return countries.size;
   }, [data]);
 
+  const countries = useMemo(() => {
+    return [
+      ...new Set(
+        data
+          .map((company) => company.country?.trim()) // Ensure `.trim()` before filtering
+          .filter(Boolean) // Removes null/undefined values
+      ),
+    ];
+  }, [data]);
+
   const minyear = useMemo(() => {
     const years = data
       .map((company) => parseInt(company.targetyear, 10))
@@ -106,6 +116,7 @@ export const CompanyDataProvider = ({ children }) => {
   return (
     <CompanyDataContext.Provider
       value={{
+        countries,
         data,
         totalCompanies,
         loading,

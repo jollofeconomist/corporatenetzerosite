@@ -42,14 +42,18 @@ function Header() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Image
-            src="/favicon.ico"
-            alt="Corporate Food Net Zero"
-            width={35}
-            height={35}
-            className={styles.logoImage}
-          />
-          <h2 className={styles.logoText}>Food NetZero</h2>
+          <Link href="/">
+            <Image
+              src="/favicon.ico"
+              alt="Corporate Food Net Zero"
+              width={35}
+              height={35}
+              className={styles.logoImage}
+            />
+          </Link>
+          <h2 className={styles.logoText} href="/">
+            Food NetZero
+          </h2>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -60,22 +64,26 @@ function Header() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <Link href="/" className={styles.navLink}>
+            <Link href="/" className={styles.navLink} scroll={false}>
               Home
             </Link>
-            <Link href="/Dataexplorer" className={styles.navLink}>
+            <Link
+              href="/Dataexplorer"
+              className={styles.navLink}
+              scroll={false}
+            >
               Data Explore
             </Link>
-            <Link href="/about-us" className={styles.navLink}>
+            <Link href="/about-us" className={styles.navLink} scroll={false}>
               About Us
             </Link>
-            <Link href="/contact-us" className={styles.navLink}>
+            <Link href="/contact-us" className={styles.navLink} scroll={false}>
               Contact Us
             </Link>
-            <Link href="/contact-us" className={styles.navLink}>
+            <Link href="/contact-us" className={styles.navLink} scroll={false}>
               Case study
             </Link>
-            <Link href="/contact-us" className={styles.navLink}>
+            <Link href="/contact-us" className={styles.navLink} scroll={false}>
               News
             </Link>
           </motion.div>
@@ -120,6 +128,7 @@ function Header() {
                 href="/"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 Home
               </Link>
@@ -127,6 +136,7 @@ function Header() {
                 href="Dataexplorer"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 Data Explore
               </Link>
@@ -134,6 +144,7 @@ function Header() {
                 href="/about-us"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 About Us
               </Link>
@@ -141,6 +152,7 @@ function Header() {
                 href="/contact-us"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 Contact Us
               </Link>
@@ -148,6 +160,7 @@ function Header() {
                 href="/contact-us"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 Case study
               </Link>
@@ -155,6 +168,7 @@ function Header() {
                 href="/contact-us"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
+                scroll={false}
               >
                 News
               </Link>
