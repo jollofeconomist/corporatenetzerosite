@@ -1,6 +1,7 @@
 "use client";
 import { useState, useCallback, memo, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   FiGlobe,
   FiTarget,
@@ -12,10 +13,13 @@ import {
   FiLoader,
 } from "react-icons/fi";
 import styles from "./FilterSection.module.css";
+import { useCompanyData } from "../../context/CompanyDataContext";
 
 const FilterSection = memo(
   ({ onFilterChange, filters, setFilters, loading = false }) => {
     // Sample data for dropdowns (will be replaced with API data later)
+
+    const { minyear, lastyear, countries } = useCompanyData();
     const sectors = [
       "Other Sectors",
       "Food and Beverage",
@@ -25,22 +29,25 @@ const FilterSection = memo(
       "Restaurant and Food Services",
     ];
 
-    const countries = [
-      "United States",
-      "United Kingdom",
-      "Germany",
-      "France",
-      "Netherlands",
-      "Canada",
-      "Australia",
-      "Japan",
-      "Switzerland",
-      "Sweden",
-    ];
+    // const countries = [
+    //   "United States",
+    //   "United Kingdom",
+    //   "Germany",
+    //   "France",
+    //   "Netherlands",
+    //   "Canada",
+    //   "Australia",
+    //   "Japan",
+    //   "Switzerland",
+    //   "Sweden",
+    // ];
 
-    const scopes = ["1", "2", "3", "1,2", "1,2,3"];
+    const scopes = ["1", "2", "3", "1,2", "1,3", "2,3", "1,2,3"];
 
-    const targetYears = ["2025", "2030", "2035", "2040", "2045", "2050"];
+    const targetYears = Array.from(
+      { length: lastyear - minyear + 1 },
+      (_, i) => minyear + i
+    );
 
     const [dropdownStates, setDropdownStates] = useState({
       sector: false,
@@ -258,10 +265,18 @@ const FilterSection = memo(
       <div className={styles.heroSection}>
         <div className={styles.heroOverlay} />
         <div className={styles.heroImageContainer}>
-          <img
+          {/* <img
             src="/asset/img4.jpg"
             alt="Corporate sustainability and Net Zero goals"
             className={styles.heroImage}
+          /> */}
+          <Image
+            src="/asset/img4.jpg"
+            alt="Data visualization"
+            width={1550}
+            height={900}
+            priority
+            className={styles.dataImage}
           />
         </div>
         <motion.div

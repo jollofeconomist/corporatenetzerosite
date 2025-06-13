@@ -245,7 +245,8 @@ function DataInsights() {
               <Image
                 src="/asset/im12.jpg"
                 alt="Data visualization"
-                fill
+                width={550} // Width in pixels
+                height={200}
                 className={styles.dataImage}
               />
               <div className={styles.imageOverlay}>

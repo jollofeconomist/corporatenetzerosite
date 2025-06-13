@@ -8,6 +8,7 @@ import TabNavigation from "./components/TabNavigation";
 import LoadingComponent from "./components/LoadingComponent";
 import CompanyDataTable from "./components/CompanyDataTable";
 import DataVisualizations from "./components/DataVisualizations";
+import { CompanyDataProvider } from "../context/CompanyDataContext";
 
 export default function Dataexplorer() {
   const [companies, setCompanies] = useState([]);
@@ -191,71 +192,73 @@ export default function Dataexplorer() {
 
   return (
     <>
-      <Header />
-      <FilterSection
-        onFilterChange={handleFilterChange}
-        filters={filters}
-        setFilters={setFilters}
-        loading={filterLoading}
-      />
-      <div className={styles.container}>
-        <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className={styles.subtitle}>
-            Explore {paginationData.totalDocs} companies and their Net Zero
-            commitments
-          </p>
-        </motion.div>
+      <CompanyDataProvider>
+        <Header />
+        <FilterSection
+          onFilterChange={handleFilterChange}
+          filters={filters}
+          setFilters={setFilters}
+          loading={filterLoading}
+        />
+        <div className={styles.container}>
+          <motion.div
+            className={styles.header}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className={styles.subtitle}>
+              Explore {paginationData.totalDocs} companies and their Net Zero
+              commitments
+            </p>
+          </motion.div>
 
-        <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+          <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <AnimatePresence mode="wait">
-          {activeTab === "data" && (
-            <motion.div
-              key="data-tab"
-              className={styles.tabContent}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6 }}
-            >
-              {dataLoading ? (
-                <LoadingComponent message="Updating company data..." />
-              ) : (
-                <CompanyDataTable
-                  companies={companies}
-                  onpage={handlePageChange}
-                  onlimit={handlelimit}
-                  page={selectedPage}
-                  limit={company}
-                  paginationData={paginationData}
-                />
-              )}
-            </motion.div>
-          )}
+          <AnimatePresence mode="wait">
+            {activeTab === "data" && (
+              <motion.div
+                key="data-tab"
+                className={styles.tabContent}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6 }}
+              >
+                {dataLoading ? (
+                  <LoadingComponent message="Updating company data..." />
+                ) : (
+                  <CompanyDataTable
+                    companies={companies}
+                    onpage={handlePageChange}
+                    onlimit={handlelimit}
+                    page={selectedPage}
+                    limit={company}
+                    paginationData={paginationData}
+                  />
+                )}
+              </motion.div>
+            )}
 
-          {activeTab === "charts" && (
-            <motion.div
-              key="charts-tab"
-              className={styles.tabContent}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6 }}
-            >
-              {chartsLoading ? (
-                <LoadingComponent message="Updating visualizations..." />
-              ) : (
-                <DataVisualizations companies={companiesdata} />
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            {activeTab === "charts" && (
+              <motion.div
+                key="charts-tab"
+                className={styles.tabContent}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6 }}
+              >
+                {chartsLoading ? (
+                  <LoadingComponent message="Updating visualizations..." />
+                ) : (
+                  <DataVisualizations companies={companiesdata} />
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </CompanyDataProvider>
     </>
   );
 }
