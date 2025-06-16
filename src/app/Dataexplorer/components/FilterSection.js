@@ -29,19 +29,6 @@ const FilterSection = memo(
       "Restaurant and Food Services",
     ];
 
-    // const countries = [
-    //   "United States",
-    //   "United Kingdom",
-    //   "Germany",
-    //   "France",
-    //   "Netherlands",
-    //   "Canada",
-    //   "Australia",
-    //   "Japan",
-    //   "Switzerland",
-    //   "Sweden",
-    // ];
-
     const scopes = ["1", "2", "3", "1,2", "1,3", "2,3", "1,2,3"];
 
     const targetYears = Array.from(
@@ -57,7 +44,6 @@ const FilterSection = memo(
 
     const toggleDropdown = (filterType) => {
       setDropdownStates((prev) => {
-        // Close all dropdowns first
         const newStates = {
           sector: false,
           country: false,

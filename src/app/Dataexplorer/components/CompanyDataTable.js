@@ -318,8 +318,6 @@ export default function CompanyDataTable({
         </div>
       </div>
 
-      {/* Page Change Notification */}
-
       <CompanyModal
         company={selectedCompany}
         isOpen={isModalOpen}
