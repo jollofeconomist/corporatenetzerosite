@@ -74,9 +74,7 @@ export const CompanyDataProvider = ({ children }) => {
   const countries = useMemo(() => {
     return [
       ...new Set(
-        data
-          .map((company) => company.country?.trim()) // Ensure `.trim()` before filtering
-          .filter(Boolean) // Removes null/undefined values
+        data.map((company) => company.country?.trim()).filter(Boolean)
       ),
     ];
   }, [data]);
