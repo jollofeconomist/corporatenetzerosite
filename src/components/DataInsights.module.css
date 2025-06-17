@@ -303,6 +303,10 @@
 }
 
 @media (max-width: 768px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
   .dataInsights {
     padding: 4rem 0;
   }
@@ -337,8 +341,13 @@
 }
 
 @media (max-width: 480px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
   .insightCard {
-    padding: 1rem;
+    padding: 2rem;
+    width: 340px;
   }
 
   .insightIcon {
@@ -351,6 +360,7 @@
 
   .chartContainer {
     padding: 1rem;
+    width: 400px;
   }
   .sectorBar {
     background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);

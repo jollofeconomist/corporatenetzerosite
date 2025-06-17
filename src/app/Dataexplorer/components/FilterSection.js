@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import {
   FiGlobe,
-  FiTarget,
   FiDatabase,
   FiTrendingUp,
   FiBarChart,
@@ -14,6 +13,7 @@ import {
 } from "react-icons/fi";
 import styles from "./FilterSection.module.css";
 import { useCompanyData } from "../../context/CompanyDataContext";
+import { TbTargetArrow } from "react-icons/tb";
 
 const FilterSection = memo(
   ({ onFilterChange, filters, setFilters, loading = false }) => {
@@ -80,6 +80,18 @@ const FilterSection = memo(
         document.removeEventListener("mousedown", handleClickOutside);
       };
     }, []);
+    const DEBOUNCE_DELAY = 800;
+    const debounceTimeout = useRef(null);
+    useEffect(() => {
+      if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+
+      debounceTimeout.current = setTimeout(() => {
+        applyFilters();
+      }, DEBOUNCE_DELAY);
+
+      // Cleanup if component unmounts or searchTerm changes before timeout
+      return () => clearTimeout(debounceTimeout.current);
+    }, [filters.searchTerm]);
 
     const removeMultiSelectItem = (filterType, value) => {
       const currentValues = filters[filterType] || [];
@@ -300,9 +312,9 @@ const FilterSection = memo(
                   type="text"
                   placeholder="Search companies..."
                   value={filters.searchTerm || ""}
-                  onChange={(e) =>
-                    handleFilterChange("searchTerm", e.target.value)
-                  }
+                  onChange={(e) => {
+                    handleFilterChange("searchTerm", e.target.value);
+                  }}
                   className={styles.searchInput}
                   disabled={loading}
                 />
@@ -351,7 +363,7 @@ const FilterSection = memo(
               {renderMultiSelectDropdown(
                 "targetYear",
                 targetYears,
-                <FiTarget className={styles.filterIcon} />,
+                <TbTargetArrow className={styles.filterIcon} />,
                 "Target Year"
               )}
             </motion.div>

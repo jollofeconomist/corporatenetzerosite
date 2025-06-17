@@ -426,6 +426,10 @@
     padding-top: 1rem;
     min-height: 450px;
   }
+  .heroContent {
+    padding: 1.5rem;
+    padding-top: 20rem;
+  }
 }
 
 @media (max-width: 768px) {
