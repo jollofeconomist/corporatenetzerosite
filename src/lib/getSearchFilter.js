@@ -30,6 +30,8 @@ export function getSearchFilter(searchQuery) {
       const scopesArray = value.split(",").map((v) => v.trim());
       filter.country =
         scopesArray.length > 1 ? { $in: scopesArray } : scopesArray[0];
+    } else if (key == "searchterm") {
+      filter.companyName = { $regex: value, $options: "i" };
     }
   });
   return filter;

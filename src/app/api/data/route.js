@@ -4,7 +4,18 @@ import Data from "../../../model/data";
 
 export async function POST(request) {
   try {
-    // Parse request body
+    const raw = await request.text();
+    if (!raw) {
+      console.error("API: Received empty body on POST");
+      return NextResponse.json(
+        {
+          error: "Empty request body",
+          message: "Likely a page refresh or unintended call",
+        },
+        { status: 400 }
+      );
+    }
+
     const {
       companyName,
       sector,
@@ -16,18 +27,6 @@ export async function POST(request) {
       scope,
     } = await request.json();
 
-    console.log("API: Received payload:", {
-      companyName,
-      sector,
-      country,
-      continent,
-      netzero,
-      targetyear,
-      companyyearrevenue,
-      scope,
-    });
-
-    // Validate required fields (companyyearrevenue is optional)
     if (!companyName || !sector || !country || !continent) {
       return NextResponse.json(
         {
@@ -52,8 +51,6 @@ export async function POST(request) {
       }
     }
 
-    // Connect to database
-    console.log("API: Attempting database connection...");
     const dbConnection = await connectToDatabase();
 
     if (!dbConnection) {
@@ -66,8 +63,6 @@ export async function POST(request) {
         { status: 500 }
       );
     }
-
-    console.log("API: Database connected successfully");
 
     // Create new data entry
     const newData = new Data({
