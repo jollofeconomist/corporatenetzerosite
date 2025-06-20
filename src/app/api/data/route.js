@@ -4,18 +4,6 @@ import Data from "../../../model/data";
 
 export async function POST(request) {
   try {
-    const raw = await request.text();
-    if (!raw) {
-      console.error("API: Received empty body on POST");
-      return NextResponse.json(
-        {
-          error: "Empty request body",
-          message: "Likely a page refresh or unintended call",
-        },
-        { status: 400 }
-      );
-    }
-
     const {
       companyName,
       sector,
@@ -25,6 +13,7 @@ export async function POST(request) {
       targetyear,
       companyyearrevenue,
       scope,
+      sciencebasedtargets,
     } = await request.json();
 
     if (!companyName || !sector || !country || !continent) {
@@ -37,19 +26,19 @@ export async function POST(request) {
       );
     }
 
-    if (companyyearrevenue !== undefined) {
-      const revenueNum = Number(companyyearrevenue);
+    // if (companyyearrevenue !== undefined) {
+    //   const revenueNum = Number(companyyearrevenue);
 
-      if (isNaN(revenueNum) || revenueNum <= 0) {
-        return NextResponse.json(
-          {
-            error: "Invalid revenue amount",
-            message: "Revenue amount must be greater than or equal to 0",
-          },
-          { status: 400 }
-        );
-      }
-    }
+    //   if (isNaN(revenueNum) || revenueNum <= 0) {
+    //     return NextResponse.json(
+    //       {
+    //         error: "Invalid revenue amount",
+    //         message: "Revenue amount must be greater than or equal to 0",
+    //       },
+    //       { status: 400 }
+    //     );
+    //   }
+    // }
 
     const dbConnection = await connectToDatabase();
 
@@ -71,6 +60,7 @@ export async function POST(request) {
       country,
       continent,
       netzero,
+      sciencebasedtargets,
       targetyear: netzero ? targetyear : undefined,
       companyyearrevenue: companyyearrevenue || undefined,
       scope: netzero ? scope : undefined,
@@ -126,7 +116,6 @@ export async function POST(request) {
   }
 }
 
-// Add GET method for testing
 export async function GET() {
   return NextResponse.json(
     {

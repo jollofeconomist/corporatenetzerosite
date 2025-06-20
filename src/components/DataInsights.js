@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 import {
   FiBarChart,
   FiPieChart,
@@ -12,6 +14,8 @@ import { useCompanyData } from "../app/context/CompanyDataContext";
 import React from "react";
 
 function DataInsights() {
+  const router = useRouter();
+
   const {
     loading,
     error,
@@ -270,6 +274,7 @@ function DataInsights() {
             className={styles.exploreButton}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/Dataexplorer")}
           >
             Explore Full Dataset
           </motion.button>

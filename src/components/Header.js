@@ -74,7 +74,7 @@ function Header() {
             >
               Data Explore
             </Link>
-            <Link href="/about-us" className={styles.navLink} scroll={false}>
+            <Link href="/aboutus" className={styles.navLink} scroll={false}>
               About Us
             </Link>
             <Link href="/contact-us" className={styles.navLink} scroll={false}>
@@ -133,7 +133,7 @@ function Header() {
                 Home
               </Link>
               <Link
-                href="Dataexplorer"
+                href="/Dataexplorer"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
                 scroll={false}
@@ -141,7 +141,7 @@ function Header() {
                 Data Explore
               </Link>
               <Link
-                href="/about-us"
+                href="/aboutus"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
                 scroll={false}

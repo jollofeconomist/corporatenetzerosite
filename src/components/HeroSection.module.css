@@ -66,14 +66,14 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #f8fafc;
+  color: #1cc52d;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
   background: linear-gradient(135deg, #0bd14d 0%, #08de4f 80%, #a7aca9 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: green;
+  -webkit-text-fill-color: rgb(249, 251, 249);
   background-clip: text;
 }
 

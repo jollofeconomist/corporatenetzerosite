@@ -15,6 +15,7 @@ import {
 import { FaBuilding } from "react-icons/fa";
 import styles from "./CompanyDataTable.module.css";
 import { TbTargetArrow } from "react-icons/tb";
+import { MdOutlineScience } from "react-icons/md";
 
 const CompanyModal = memo(({ company, isOpen, onClose }) => {
   const modalVariants = {
@@ -89,6 +90,13 @@ const CompanyModal = memo(({ company, isOpen, onClose }) => {
                     <div>
                       <label>Continent</label>
                       <span>{company.continent}</span>
+                    </div>
+                  </div>
+                  <div className={styles.modalField}>
+                    <MdOutlineScience className={styles.fieldIcon} />
+                    <div>
+                      <label>Science-Based Targets(STBi)</label>
+                      <span>{company.sciencebasedtargets}</span>
                     </div>
                   </div>
 

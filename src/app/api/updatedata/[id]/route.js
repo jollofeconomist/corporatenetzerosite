@@ -13,6 +13,7 @@ export async function PATCH(request, { params }) {
     netzero,
     targetyear,
     companyyearrevenue,
+    sciencebasedtargets,
     scope,
   } = await request.json();
 
@@ -29,6 +30,7 @@ export async function PATCH(request, { params }) {
         netzero,
         targetyear,
         companyyearrevenue,
+        sciencebasedtargets,
         scope,
       },
       { new: true }

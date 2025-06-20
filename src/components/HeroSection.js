@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { FiTrendingUp, FiTarget, FiGlobe } from "react-icons/fi";
 import styles from "./HeroSection.module.css";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import { useCompanyData } from "../app/context/CompanyDataContext";
+import { Router } from "next/router";
 
 // Custom hook for count-up animation
 const useCountUp = (endValue, duration = 2000, startDelay = 0) => {
@@ -58,6 +60,7 @@ function HeroSection() {
     totalcountries,
     medianTargetYear,
   } = useCompanyData();
+  const router = useRouter();
 
   // Count-up animations with staggered delays
   const animatedTotalCompanies = useCountUp(totalCompanies, 2000, 800);
@@ -181,6 +184,8 @@ function HeroSection() {
               className={styles.primaryButton}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/Dataexplorer")}
+              // Scroll to top on click
             >
               Explore Data
             </motion.button>
@@ -188,6 +193,7 @@ function HeroSection() {
               className={styles.secondaryButton}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => router.push("/aboutus")}
             >
               Learn More
             </motion.button>
