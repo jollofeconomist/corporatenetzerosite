@@ -45,6 +45,10 @@ const dataschema = new mongoose.Schema(
       enum: ["1", "2", "3"],
       required: false,
     },
+    sciencebasedtargets: {
+      type: String,
+      enum: ["Yes", "No", "Removed"],
+    },
   },
   {
     collection: "alldata",

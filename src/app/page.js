@@ -5,8 +5,10 @@ import DataInsights from "../components/DataInsights";
 import Footer from "../components/Footer";
 import styles from "./page.module.css";
 import { CompanyDataProvider } from "./context/CompanyDataContext";
+//import { useRouter } from "next/navigation";
 
 export default function Home() {
+  //const router = useRouter();
   return (
     <CompanyDataProvider>
       <div className={styles.page}>

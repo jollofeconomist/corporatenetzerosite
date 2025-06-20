@@ -253,6 +253,7 @@ function DataManagement() {
                     <th>Target Year</th>
                     <th>Revenue ($)</th>
                     <th>Scope</th>
+                    <th>sciencebasedtargets</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -289,6 +290,11 @@ function DataManagement() {
                       <td>
                         {company.netzero && company.scope
                           ? `Scope ${company.scope}`
+                          : "-"}
+                      </td>
+                      <td>
+                        {company.sciencebasedtargets
+                          ? company.sciencebasedtargets
                           : "-"}
                       </td>
                       <td>

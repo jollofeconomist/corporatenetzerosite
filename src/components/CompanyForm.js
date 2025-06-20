@@ -14,6 +14,7 @@ function CompanyForm() {
     targetyear: "",
     companyyearrevenue: "",
     scope: "",
+    sciencebasedtargets: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -76,8 +77,6 @@ function CompanyForm() {
     }
 
     if (formData.companyyearrevenue !== "") {
-      // Only validate if field is not empty
-
       const revenueNum = Number(formData.companyyearrevenue);
 
       if (isNaN(revenueNum) || revenueNum < 0) {
@@ -86,7 +85,6 @@ function CompanyForm() {
       }
     }
 
-    // Target year validation - only if provided
     if (
       formData.targetyear &&
       (formData.targetyear < 2020 || formData.targetyear > 2500)
@@ -105,6 +103,7 @@ function CompanyForm() {
       country: formData.country.trim(),
       continent: formData.continent,
       netzero: formData.netzero,
+      sciencebasedtargets: formData.sciencebasedtargets,
       companyyearrevenue: parseInt(formData.companyyearrevenue, 10),
     };
 
@@ -159,6 +158,7 @@ function CompanyForm() {
           targetyear: "",
           companyyearrevenue: "",
           scope: "",
+          sciencebasedtargets: "",
         });
       } else {
         console.error("API error response:", data);
@@ -317,6 +317,27 @@ function CompanyForm() {
               <option value="Australia">Australia</option>
             </select>
             {errors.continent && (
+              <span className={styles.errorText}>{errors.continent}</span>
+            )}
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label className={styles.label}>Sciencebasedtargets</label>
+            <select
+              name="sciencebasedtargets"
+              value={formData.sciencebasedtargets}
+              onChange={handleChange}
+              className={`${styles.select} ${
+                errors.sciencebasedtargets ? styles.error : ""
+              }`}
+              required
+            >
+              <option value="">Select Sciencebasedtargets</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Removed">Removed</option>
+            </select>
+            {errors.sciencebasedtargets && (
               <span className={styles.errorText}>{errors.continent}</span>
             )}
           </div>
