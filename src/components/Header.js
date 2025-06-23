@@ -77,13 +77,13 @@ function Header() {
             <Link href="/aboutus" className={styles.navLink} scroll={false}>
               About Us
             </Link>
-            <Link href="/contact-us" className={styles.navLink} scroll={false}>
+            <Link href="/contactus" className={styles.navLink} scroll={false}>
               Contact Us
             </Link>
-            <Link href="/contact-us" className={styles.navLink} scroll={false}>
+            <Link href="/casestudy" className={styles.navLink} scroll={false}>
               Case study
             </Link>
-            <Link href="/contact-us" className={styles.navLink} scroll={false}>
+            <Link href="/news" className={styles.navLink} scroll={false}>
               News
             </Link>
           </motion.div>
@@ -149,7 +149,7 @@ function Header() {
                 About Us
               </Link>
               <Link
-                href="/contact-us"
+                href="/contactus"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
                 scroll={false}
@@ -157,7 +157,7 @@ function Header() {
                 Contact Us
               </Link>
               <Link
-                href="/contact-us"
+                href="/casestudy"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
                 scroll={false}
@@ -165,7 +165,7 @@ function Header() {
                 Case study
               </Link>
               <Link
-                href="/contact-us"
+                href="/news"
                 className={styles.mobileNavLink}
                 onClick={closeMobileMenu}
                 scroll={false}

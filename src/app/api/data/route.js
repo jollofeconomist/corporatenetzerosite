@@ -66,9 +66,7 @@ export async function POST(request) {
       scope: netzero ? scope : undefined,
     });
 
-    console.log("API: Saving data to database...");
     const savedData = await newData.save();
-    console.log("API: Data saved successfully:", savedData._id);
 
     return NextResponse.json(
       {

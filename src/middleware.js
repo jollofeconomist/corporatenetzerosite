@@ -9,6 +9,7 @@ export async function middleware(request) {
     pathname.startsWith("/api/data") ||
     pathname.startsWith("/api/updatedata") ||
     pathname.startsWith("/api/deletedata") ||
+    pathname.startsWith("/api/casestudy") ||
     pathname === "/adddata"
   ) {
     if (request.method === "GET" && pathname.startsWith("/api/")) {
@@ -70,6 +71,7 @@ export const config = {
     "/api/updatedata",
     "/api/updatedata/:path*",
     "/api/deletedata",
+    "/api/casestudy",
     "/api/deletedata/:path*",
     "/adddata",
   ],

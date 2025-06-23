@@ -59,7 +59,9 @@ function DataInsights() {
   // ];
 
   function getPercentage(s) {
-    return (sectorCounts[s] / totalCompanies) * 100;
+    const count = sectorCounts[s] || 0;
+    const total = totalCompanies || 1;
+    return (count / total) * 100;
   }
 
   const sectorData = [
@@ -86,7 +88,7 @@ function DataInsights() {
     {
       name: "Restaurant and Food Services",
       percentage: getPercentage("Restaurant and Food Services").toFixed(1),
-      companies: sectorCounts["Restaurant and Food Services"],
+      companies: sectorCounts["Restaurant and Food Services"] || 0,
     },
     {
       name: "Other Sectors",
@@ -207,23 +209,28 @@ function DataInsights() {
               </h3>
               <div className={styles.sectorChart}>
                 {sectorData.map((sector, index) => {
-                  const isLowPercentage = parseFloat(sector.percentage) < 12;
-                  const barWidth = Math.min(
-                    parseFloat(sector.percentage) * 2.5,
-                    100
-                  );
+                  const percentage = parseFloat(sector.percentage);
+                  const isLowPercentage = percentage < 12;
+                  const isVerySmall = percentage < 5; // For very small bars
+                  const barWidth = Math.min(percentage * 2.5, 100);
 
                   return (
                     <div key={index} className={styles.sectorRow}>
                       <motion.div
-                        className={styles.sectorBar}
+                        className={`${styles.sectorBar} ${
+                          isVerySmall ? styles.sectorBarSmall : ""
+                        }`}
                         initial={{ width: 0 }}
                         whileInView={{ width: `${barWidth}%` }}
                         transition={{ duration: 1, delay: index * 0.1 }}
                         viewport={{ once: true }}
                       >
                         <div className={styles.sectorInfo}>
-                          <span className={styles.sectorName}>
+                          <span
+                            className={`${styles.sectorName} ${
+                              isVerySmall ? styles.sectorNameSmall : ""
+                            }`}
+                          >
                             {sector.name}
                           </span>
                           {!isLowPercentage && (
