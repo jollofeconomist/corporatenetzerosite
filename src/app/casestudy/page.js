@@ -60,7 +60,6 @@ export default function CaseStudyPage() {
     return matchesSearch && matchesIndustry;
   });
 
-  // Get unique industries for filter
   const industries = [
     ...new Set(caseStudies.map((cs) => cs.industry).filter(Boolean)),
   ];

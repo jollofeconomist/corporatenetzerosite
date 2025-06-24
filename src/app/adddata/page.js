@@ -5,6 +5,7 @@ import CompanyForm from "../../components/CompanyForm";
 import DataManagement from "../../components/DataManagement";
 import CaseStudy from "../../components/Casestudy";
 import styles from "./page.module.css";
+import Editcasestudy from "@/components/Editcasestudy";
 
 export default function AddDataPage() {
   const [activeTab, setActiveTab] = useState("add");
@@ -41,6 +42,15 @@ export default function AddDataPage() {
             <span className={styles.tabIcon}>📄 </span>
             case study
           </button>
+          <button
+            onClick={() => setActiveTab("Editcasestudy")}
+            className={`${styles.tab} ${
+              activeTab === "Editcasestudy" ? styles.active : ""
+            }`}
+          >
+            <span className={styles.tabIcon}>📝 </span>
+            Edit casestudy
+          </button>
         </div>
       </div>
 
@@ -48,6 +58,7 @@ export default function AddDataPage() {
         {activeTab === "add" && <CompanyForm />}
         {activeTab === "manage" && <DataManagement />}
         {activeTab === "casestudy" && <CaseStudy />}
+        {activeTab === "Editcasestudy" && <Editcasestudy />}
       </div>
     </div>
   );
