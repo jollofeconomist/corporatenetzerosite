@@ -6,6 +6,8 @@ import DataManagement from "../../components/DataManagement";
 import CaseStudy from "../../components/Casestudy";
 import styles from "./page.module.css";
 import Editcasestudy from "@/components/Editcasestudy";
+import Addnews from "../../components/addnews";
+import Editnews from "../../components/managenews";
 
 export default function AddDataPage() {
   const [activeTab, setActiveTab] = useState("add");
@@ -51,6 +53,24 @@ export default function AddDataPage() {
             <span className={styles.tabIcon}>📝 </span>
             Edit casestudy
           </button>
+          <button
+            onClick={() => setActiveTab("news")}
+            className={`${styles.tab} ${
+              activeTab === "news" ? styles.active : ""
+            }`}
+          >
+            <span className={styles.tabIcon}>🗞️</span>
+            news
+          </button>
+          <button
+            onClick={() => setActiveTab("editnews")}
+            className={`${styles.tab} ${
+              activeTab === "editnews" ? styles.active : ""
+            }`}
+          >
+            <span className={styles.tabIcon}> 📄</span>
+            editnews
+          </button>
         </div>
       </div>
 
@@ -59,6 +79,8 @@ export default function AddDataPage() {
         {activeTab === "manage" && <DataManagement />}
         {activeTab === "casestudy" && <CaseStudy />}
         {activeTab === "Editcasestudy" && <Editcasestudy />}
+        {activeTab === "news" && <Addnews />}
+        {activeTab === "editnews" && <Editnews />}
       </div>
     </div>
   );

@@ -1,18 +1,22 @@
+import News from "../../../../../model/news";
+import { connectToDatabase } from "../../../../../lib/db";
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db";
-import CaseStudy from "@/model/casestudy";
 
 export async function DELETE(req, context) {
-  await connectToDatabase();
-
   try {
+    await connectToDatabase();
+
     const { id } = await context.params;
-    const deleted = await CaseStudy.findByIdAndDelete(id);
+    const deleted = await News.findByIdAndDelete(id);
 
     if (!deleted) {
       return NextResponse.json(
-        { message: "Case study not found" },
-        { status: 404 }
+        {
+          message: "news not found",
+        },
+        {
+          status: 404,
+        }
       );
     }
 
