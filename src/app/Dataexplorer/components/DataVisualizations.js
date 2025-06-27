@@ -149,6 +149,7 @@ const SectorBarChart = memo(({ companies }) => {
                     {data.withNetZero}
                   </span>
                 </motion.div>
+
                 <motion.div
                   className={styles.verticalBarWithoutNetZero}
                   initial={{ height: 0 }}

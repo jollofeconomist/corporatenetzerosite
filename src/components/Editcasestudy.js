@@ -121,7 +121,6 @@ export default function Editcasestudy() {
     setform({ ...form, sections: updated });
   };
 
-  // Add new section
   const addNewSection = () => {
     const newSection = {
       heading: "",
@@ -130,7 +129,6 @@ export default function Editcasestudy() {
     setform({ ...form, sections: [...form.sections, newSection] });
   };
 
-  // Remove section
   const removeSection = (sectionIndex) => {
     if (window.confirm("Are you sure you want to remove this section?")) {
       const updated = form.sections.filter(

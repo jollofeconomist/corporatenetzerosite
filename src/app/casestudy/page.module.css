@@ -1,6 +1,6 @@
 .caseStudyPage {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #dee0e1 0%, #e2e8f0 100%);
   padding: 2rem 0;
 }
 
@@ -38,10 +38,11 @@
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #64748b;
-  max-width: 600px;
+  max-width: 1500px;
   line-height: 1.6;
+  font-style: italic;
 }
 
 .createButton {
@@ -74,7 +75,7 @@
 }
 
 .statCard {
-  background: white;
+  background: rgb(218, 219, 219);
   border-radius: 16px;
   padding: 2rem;
   display: flex;
@@ -200,7 +201,7 @@
 
 /* Case Study Card */
 .caseStudyCard {
-  background: white;
+  background: rgb(158, 205, 158);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
