@@ -1,0 +1,251 @@
+.contactInfoContainer {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.contactInfoContainer:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.infoHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.infoTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.infoSubtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contactGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(249, 250, 251, 0.8);
+  border-radius: 12px;
+  border-left: 4px solid #22c55e;
+  transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+  background: rgba(34, 197, 94, 0.05);
+  transform: translateX(4px);
+}
+
+.contactIcon {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.contactContent {
+  flex: 1;
+}
+
+.contactTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.contactText {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contactLink {
+  color: #22c55e;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #16a34a;
+  text-decoration: underline;
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.responseTime {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.1),
+    rgba(22, 163, 74, 0.1)
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.responseTime svg {
+  color: #22c55e;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.responseTime h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.responseTime p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.socialSection {
+  text-align: center;
+}
+
+.socialTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(229, 231, 235, 0.3);
+  border-radius: 12px;
+  color: var(--social-color);
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  background: var(--social-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactInfoContainer {
+    padding: 2rem;
+  }
+
+  .infoTitle {
+    font-size: 1.75rem;
+  }
+
+  .infoSubtitle {
+    font-size: 1rem;
+  }
+
+  .contactItem {
+    padding: 1rem;
+  }
+
+  .additionalInfo {
+    gap: 1.5rem;
+  }
+
+  .responseTime {
+    padding: 1rem;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+  }
+
+  .socialLink {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactInfoContainer {
+    padding: 1.5rem;
+  }
+
+  .infoHeader {
+    margin-bottom: 2rem;
+  }
+
+  .infoTitle {
+    font-size: 1.5rem;
+  }
+
+  .contactGrid {
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .contactItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .responseTime {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .additionalInfo {
+    padding-top: 1.5rem;
+  }
+}
