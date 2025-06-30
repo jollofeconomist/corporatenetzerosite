@@ -14,7 +14,6 @@ export default function Dataexplorer() {
   const [companies, setCompanies] = useState([]);
   const [companiesdata, setcompaniesdata] = useState([]);
 
-  // Separate loading states
   const [initialLoading, setInitialLoading] = useState(true);
   const [dataLoading, setDataLoading] = useState(false);
   const [chartsLoading, setChartsLoading] = useState(false);
