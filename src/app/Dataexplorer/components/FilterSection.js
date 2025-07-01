@@ -255,8 +255,6 @@ const FilterSection = memo(
     const applyFilters = () => {
       const query = buildSearchQuery(filters);
       onFilterChange(query, filters);
-      console.log("Applying filters:", query);
-      console.log("Current filters state:", filters);
     };
 
     return (

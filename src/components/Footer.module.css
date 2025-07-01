@@ -213,6 +213,28 @@
   font-size: 0.9rem;
   color: #9ca3af;
 }
+.attribution p {
+  padding-left: 18rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+.uni {
+  color: #16a34a;
+}
+
+.quote {
+  font-size: 1.1rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.byline {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+  padding-left: 20rem;
+}
 
 .bottomLinks {
   display: flex;
@@ -286,6 +308,14 @@
     gap: 1rem;
     text-align: center;
     padding-top: 1.5rem;
+  }
+
+  .attribution p {
+    padding-left: 0;
+  }
+
+  .byline {
+    padding-left: 0;
   }
 
   .bottomLinks {

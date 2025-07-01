@@ -210,38 +210,48 @@ function DataInsights() {
               <div className={styles.sectorChart}>
                 {sectorData.map((sector, index) => {
                   const percentage = parseFloat(sector.percentage);
+                  const isZero = percentage === 0;
                   const isLowPercentage = percentage < 12;
-                  const isVerySmall = percentage < 5; // For very small bars
+                  const isVerySmall = percentage < 5 && percentage > 0; // For very small bars but not zero
                   const barWidth = Math.min(percentage * 2.5, 100);
 
                   return (
                     <div key={index} className={styles.sectorRow}>
-                      <motion.div
-                        className={`${styles.sectorBar} ${
-                          isVerySmall ? styles.sectorBarSmall : ""
-                        }`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${barWidth}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className={styles.sectorInfo}>
-                          <span
-                            className={`${styles.sectorName} ${
-                              isVerySmall ? styles.sectorNameSmall : ""
-                            }`}
-                          >
+                      {!isZero ? (
+                        <motion.div
+                          className={`${styles.sectorBar} ${
+                            isVerySmall ? styles.sectorBarSmall : ""
+                          }`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${barWidth}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          <div className={styles.sectorInfo}>
+                            <span
+                              className={`${styles.sectorName} ${
+                                isVerySmall ? styles.sectorNameSmall : ""
+                              }`}
+                            >
+                              {sector.name}
+                            </span>
+                            {!isLowPercentage && (
+                              <span className={styles.sectorStats}>
+                                {sector.companies} companies (
+                                {sector.percentage}
+                                %)
+                              </span>
+                            )}
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <div className={styles.sectorBarZero}>
+                          <span className={styles.sectorNameZero}>
                             {sector.name}
                           </span>
-                          {!isLowPercentage && (
-                            <span className={styles.sectorStats}>
-                              {sector.companies} companies ({sector.percentage}
-                              %)
-                            </span>
-                          )}
                         </div>
-                      </motion.div>
-                      {isLowPercentage && (
+                      )}
+                      {(isLowPercentage || isZero) && (
                         <div className={styles.sectorStatsOutside}>
                           {sector.companies} companies ({sector.percentage}%)
                         </div>

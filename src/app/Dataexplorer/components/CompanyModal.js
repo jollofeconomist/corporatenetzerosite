@@ -137,12 +137,12 @@ const CompanyModal = memo(({ company, isOpen, onClose }) => {
                   <div className={styles.modalField}>
                     <FiDollarSign className={styles.fieldIcon} />
                     <div>
-                      <label>Annual Revenue</label>
+                      <label>Annual Revenue(in millions)</label>
                       <span>
                         {company.companyyearrevenue
                           ? `$${Number(
                               company.companyyearrevenue
-                            ).toLocaleString()}`
+                            ).toLocaleString()}M`
                           : "Not disclosed"}
                       </span>
                     </div>

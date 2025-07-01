@@ -77,7 +77,6 @@ export default function Dataexplorer() {
     }
   }, []);
 
-  // Simplified fetchdata for charts
   const fetchdata = useCallback(async (search) => {
     try {
       setChartsLoading(true);
@@ -101,7 +100,6 @@ export default function Dataexplorer() {
     }
   }, []);
 
-  // Initial data fetch - only runs once
   useEffect(() => {
     const initialFetch = async () => {
       try {
@@ -116,9 +114,9 @@ export default function Dataexplorer() {
     };
 
     initialFetch();
-  }, []); // Empty dependency array - only runs once
+  }, []);
 
-  // Handle pagination changes - only after initial load
+  // Handle pagination changes
   useEffect(() => {
     if (isInitializedRef.current) {
       fetchCompanies(selectedPage, company, searchQuery);
@@ -136,7 +134,7 @@ export default function Dataexplorer() {
         setFilterLoading(false);
       });
     }
-  }, [searchQuery]); // Only depend on searchQuery to avoid loops
+  }, [searchQuery]);
 
   const handlePageChange = (newPage) => {
     setSelectedPage(newPage);

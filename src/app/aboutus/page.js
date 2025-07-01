@@ -7,8 +7,10 @@ import styles from "./page.module.css";
 
 import { RiSeedlingLine } from "react-icons/ri";
 import { VscGraph } from "react-icons/vsc";
+import { useCompanyData } from "../../app/context/CompanyDataContext";
 
 export default function AboutUsPage() {
+  const { totalCompanies } = useCompanyData();
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -77,7 +79,7 @@ export default function AboutUsPage() {
 
             <motion.div className={styles.statsGrid} variants={fadeInUp}>
               <div className={styles.statCard}>
-                <h3>187+</h3>
+                <h3>{totalCompanies}</h3>
                 <p>Companies Tracked</p>
               </div>
               <div className={styles.statCard}>

@@ -15,18 +15,22 @@ function Footer() {
   const footerLinks = [
     {
       title: "Platform",
-      links: [{ name: "Data Explore", href: "/data-explore" }],
+      links: [
+        { name: "Data Explore", href: "/Dataexplorer" },
+        { name: "Case study", href: "/casestudy" },
+        { name: "News", href: "/news" },
+      ],
     },
     {
       title: "Resources",
       links: [
-        { name: "About Us", href: "/about-us" },
+        { name: "About Us", href: "/aboutus" },
         { name: "Admin Access", href: "/admin" },
       ],
     },
     {
       title: "Support",
-      links: [{ name: "Contact Us", href: "/contact-us" }],
+      links: [{ name: "Contact Us", href: "/contactus" }],
     },
   ];
 
@@ -90,7 +94,7 @@ function Footer() {
           </div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           className={styles.newsletter}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +125,7 @@ function Footer() {
               </motion.button>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           className={styles.footerBottom}
@@ -131,7 +135,40 @@ function Footer() {
           viewport={{ once: true }}
         >
           <div className={styles.copyright}>
-            <p>&copy; 2024 Corporate Food Net Zero. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} Corporate Food Net Zero. All
+              rights reserved.
+            </p>
+          </div>
+          <div className={styles.attribution}>
+            <p>
+              <span className={styles.quote}>"</span>
+              Originally Engineered by{" "}
+              <span className={styles.uni}>
+                <a
+                  href="https://rse.ncldata.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Newcastle University Research Software Engineering
+                </a>
+              </span>
+              <span className={styles.quote}>"</span>
+            </p>
+            <p className={styles.byline}>
+              Current version by{" "}
+              <span className={styles.uni}>
+                {" "}
+                <a
+                  href="https://mysiteee.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bansi Dobariya{" "}
+                </a>
+              </span>{" "}
+              · MSc Advanced Computer Science, Newcastle University
+            </p>
           </div>
           <div className={styles.bottomLinks}></div>
         </motion.div>

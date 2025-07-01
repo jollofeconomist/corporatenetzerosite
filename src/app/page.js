@@ -10,16 +10,14 @@ import { CompanyDataProvider } from "./context/CompanyDataContext";
 export default function Home() {
   //const router = useRouter();
   return (
-    <CompanyDataProvider>
-      <div className={styles.page}>
-        <Header />
-        <main className={styles.main}>
-          <HeroSection />
-          <FeaturesSection />
-          <DataInsights />
-        </main>
-        <Footer />
-      </div>
-    </CompanyDataProvider>
+    <div className={styles.page}>
+      <Header />
+      <main className={styles.main}>
+        <HeroSection />
+        <FeaturesSection />
+        <DataInsights />
+      </main>
+      <Footer />
+    </div>
   );
 }

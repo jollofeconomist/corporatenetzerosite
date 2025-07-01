@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { FiSend, FiUser, FiMail, FiMessageSquare, FiTag } from "react-icons/fi";
+import { toast } from "react-toastify";
+
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -77,7 +79,6 @@ export default function ContactForm() {
       });
 
       if (res.ok) {
-        console.log("Form data ready for submission:", formData);
       } else {
         console.log("error");
       }
@@ -89,11 +90,11 @@ export default function ContactForm() {
         subject: "",
         message: "",
       });
-
-      alert("Message sent successfully! We'll get back to you soon.");
+      toast.success("Message sent successfully! We'll get back to you soon.");
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to send message. Please try again.");
+
+      toast.success("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

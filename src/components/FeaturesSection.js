@@ -10,10 +10,12 @@ import {
 } from "react-icons/fi";
 import styles from "./FeaturesSection.module.css";
 import React from "react";
+import { useCompanyData } from "../app/context/CompanyDataContext";
 
 // const data =
 
 function FeaturesSection() {
+  const { totalCompanies } = useCompanyData();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,8 +70,7 @@ function FeaturesSection() {
     {
       icon: <FiDatabase />,
       title: "Comprehensive Database",
-      description:
-        "Access detailed information on 187 leading companies across various food industry sectors.",
+      description: `Access detailed information on ${totalCompanies} leading companies across various food industry sectors.`,
     },
     {
       icon: <FiMap />,
