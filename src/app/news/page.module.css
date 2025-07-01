@@ -94,7 +94,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .main {
-    padding: 1.5rem;
+    padding: 1.7rem;
   }
 
   .pageHeader {
@@ -119,7 +119,7 @@
 
 @media (max-width: 480px) {
   .main {
-    padding: 1rem;
+    padding: 5.3rem 1rem;
   }
 
   .pageTitle {

@@ -37,12 +37,12 @@ function Header() {
       transition={{ duration: 0.6 }}
     >
       <div className={styles.container}>
-        <motion.div
-          className={styles.logo}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <Link href="/">
+        <Link href="/">
+          <motion.div
+            className={styles.logo}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <Image
               src="/favicon.ico"
               alt="Corporate Food Net Zero"
@@ -50,11 +50,10 @@ function Header() {
               height={35}
               className={styles.logoImage}
             />
-          </Link>
-          <h2 className={styles.logoText} href="/">
-            Food NetZero
-          </h2>
-        </motion.div>
+
+            <h2 className={styles.logoText}>Food NetZero</h2>
+          </motion.div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className={styles.nav}>
@@ -74,23 +73,24 @@ function Header() {
             >
               Data Explore
             </Link>
-            <Link href="/aboutus" className={styles.navLink} scroll={false}>
-              About Us
-            </Link>
-            <Link href="/contactus" className={styles.navLink} scroll={false}>
-              Contact Us
-            </Link>
+
             <Link href="/casestudy" className={styles.navLink} scroll={false}>
               Case study
             </Link>
             <Link href="/news" className={styles.navLink} scroll={false}>
               News
             </Link>
+            <Link href="/aboutus" className={styles.navLink} scroll={false}>
+              About Us
+            </Link>
+            <Link href="/contactus" className={styles.navLink} scroll={false}>
+              Contact Us
+            </Link>
           </motion.div>
         </nav>
 
         <div className={styles.rightSection}>
-          <motion.button
+          {/* <motion.button
             className={styles.ctaButton}
             whileHover={{ scale: 1.05, backgroundColor: "#15803d" }}
             whileTap={{ scale: 0.95 }}
@@ -99,7 +99,7 @@ function Header() {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             Get Started
-          </motion.button>
+          </motion.button> */}
 
           {/* Mobile Menu Button */}
           <motion.button
