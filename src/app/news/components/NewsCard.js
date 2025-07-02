@@ -20,13 +20,13 @@ export default function NewsCard({ newsItem, onViewMore }) {
           View More
         </button>
 
-        <button
+        {/* <button
           className={styles.sourceButton}
           onClick={() => window.open(newsItem.sourceUrl, "_blank")}
         >
           <FiExternalLink />
           Source
-        </button>
+        </button> */}
       </div>
     </div>
   );

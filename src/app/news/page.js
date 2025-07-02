@@ -51,10 +51,7 @@ export default function newspage() {
       <Header />
       <main className={styles.main}>
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>
-            <FaRegNewspaper />
-            Latest News & Updates
-          </h1>
+          <h1 className={styles.pageTitle}>Latest News & Updates</h1>
           <p className={styles.pageSubtitle}>
             Stay informed with the latest developments in corporate
             sustainability and net-zero initiatives from around the world.

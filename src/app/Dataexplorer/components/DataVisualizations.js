@@ -215,7 +215,7 @@ const CountryBarChart = memo(({ companies }) => {
     <div className={styles.chartContainer}>
       <h3 className={styles.chartTitle}>
         <TfiBarChart />
-        Net Zero Status by Country (Top 10)
+        Net Zero Status by Country
       </h3>
       <div className={styles.verticalBarChart}>
         {countryData.map((data, index) => (

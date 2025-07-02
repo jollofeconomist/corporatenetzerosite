@@ -71,14 +71,14 @@ function Header() {
               className={styles.navLink}
               scroll={false}
             >
-              Data Explore
+              Explore Data
             </Link>
 
             <Link href="/casestudy" className={styles.navLink} scroll={false}>
-              Case study
+              Case Studies
             </Link>
             <Link href="/news" className={styles.navLink} scroll={false}>
-              News
+              Sustainability News
             </Link>
             <Link href="/aboutus" className={styles.navLink} scroll={false}>
               About Us

@@ -21,7 +21,7 @@ export default function NewsDetail({ newsItem, onClose }) {
         </div>
 
         <div className={styles.contentSection}>
-          <h3 className={styles.contentLabel}>Article Content</h3>
+          {/* <h3 className={styles.contentLabel}>Article Content</h3> */}
           <div className={styles.contentContainer}>
             {newsItem.content.map((paragraph, index) => (
               <p key={index} className={styles.contentParagraph}>
@@ -37,7 +37,7 @@ export default function NewsDetail({ newsItem, onClose }) {
             onClick={() => window.open(newsItem.sourceUrl, "_blank")}
           >
             <FiExternalLink />
-            Read Full Article
+            Source
           </button>
         </div>
       </div>

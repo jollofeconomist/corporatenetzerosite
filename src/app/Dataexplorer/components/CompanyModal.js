@@ -95,7 +95,7 @@ const CompanyModal = memo(({ company, isOpen, onClose }) => {
                   <div className={styles.modalField}>
                     <MdOutlineScience className={styles.fieldIcon} />
                     <div>
-                      <label>Science-Based Targets(STBi)</label>
+                      <label>Science-Based Targets initiatives(SBTI)</label>
                       <span>{company.sciencebasedtargets}</span>
                     </div>
                   </div>
