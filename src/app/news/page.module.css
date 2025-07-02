@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
+  background: linear-gradient(135deg, #0a4d3a 0%, #1a5f4a 50%, #2a6f5a 100%);
 }
 
 .main {
@@ -15,19 +15,27 @@
 }
 
 .pageTitle {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #22c55e 50%, #16a085 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  /* font-size: 3rem;
   font-weight: 800;
-  color: #1f2937;
+  color: white;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1rem; */
 }
 
 .pageSubtitle {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: white;
   font-weight: 500;
   max-width: 600px;
   margin: 0 auto;

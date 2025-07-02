@@ -37,7 +37,7 @@ export default function AboutUsPage() {
         >
           <div className={styles.heroContent}>
             <motion.h1 className={styles.heroTitle} {...fadeInUp}>
-              About Our Mission
+              Our Mission
             </motion.h1>
             <motion.p
               className={styles.heroSubtitle}
@@ -67,13 +67,11 @@ export default function AboutUsPage() {
                   data on corporate targets, standards and reporting
                   initiatives. This important knowledge is often stored in
                   inaccessible databases and corporate reports or behind
-                  paywalls.
+                  paywalls. The goal of our work is to make this data widely
+                  accessible for informed decision-making by policymakers,
+                  consumers, suppliers and other relevant stakeholders.
                 </p>
-                <p>
-                  The goal of our work is to make this data widely accessible
-                  for informed decision-making by policymakers, consumers,
-                  suppliers and other relevant stakeholders.
-                </p>
+                <p></p>
               </div>
             </motion.div>
 
@@ -204,11 +202,11 @@ export default function AboutUsPage() {
                     insights
                   </p>
                 </div>
-                <div className={styles.impactItem}>
+                {/* <div className={styles.impactItem}>
                   <div className={styles.impactIcon}>🤝</div>
                   <h3>Collaboration</h3>
                   <p>Fostering partnerships across the agrifood supply chain</p>
-                </div>
+                </div> */}
                 <div className={styles.impactItem}>
                   <div className={styles.impactIcon}>🎯</div>
                   <h3>Net Zero Goals</h3>

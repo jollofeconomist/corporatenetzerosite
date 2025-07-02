@@ -142,8 +142,7 @@ function Footer() {
           </div>
           <div className={styles.attribution}>
             <p>
-              <span className={styles.quote}>"</span>
-              Originally Engineered by{" "}
+              Website prototype developed by{" "}
               <span className={styles.uni}>
                 <a
                   href="https://rse.ncldata.dev/"
@@ -153,7 +152,6 @@ function Footer() {
                   Newcastle University Research Software Engineering
                 </a>
               </span>
-              <span className={styles.quote}>"</span>
             </p>
             <p className={styles.byline}>
               Current version by{" "}
@@ -167,7 +165,6 @@ function Footer() {
                   Bansi Dobariya{" "}
                 </a>
               </span>{" "}
-              · MSc Advanced Computer Science, Newcastle University
             </p>
           </div>
           <div className={styles.bottomLinks}></div>

@@ -103,7 +103,7 @@ export default function ContactForm() {
   return (
     <div className={styles.formContainer}>
       <div className={styles.formHeader}>
-        <h2 className={styles.formTitle}>Send us a Message</h2>
+        <h2 className={styles.formTitle}>Get in Touch</h2>
         <p className={styles.formSubtitle}>
           We'd love to hear from you. Send us a message and we'll respond as
           soon as possible.

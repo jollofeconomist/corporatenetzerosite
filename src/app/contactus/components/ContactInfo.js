@@ -18,18 +18,18 @@ export default function ContactInfo() {
       info: "info@corporatefoodnetzero.com",
       action: "mailto:info@corporatefoodnetzero.com",
     },
-    {
-      icon: <FiPhone />,
-      title: "Call Us",
-      info: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
-    },
-    {
-      icon: <FiMapPin />,
-      title: "Visit Us",
-      info: "Newcastle",
-      action: "#",
-    },
+    // {
+    //   icon: <FiPhone />,
+    //   title: "Call Us",
+    //   info: "+1 (555) 123-4567",
+    //   action: "tel:+15551234567",
+    // },
+    // {
+    //   icon: <FiMapPin />,
+    //   title: "Visit Us",
+    //   info: "Newcastle",
+    //   action: "#",
+    // },
   ];
 
   const socialLinks = [

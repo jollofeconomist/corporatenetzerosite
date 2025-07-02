@@ -80,9 +80,9 @@ function FeaturesSection() {
     },
     {
       icon: <FiEye />,
-      title: "Transparent Reporting",
+      title: " Validation",
       description:
-        "Clear, data-driven insights into corporate Net Zero commitments and progress.",
+        "Reports industry accepted third-party validation standards.",
     },
   ];
 
