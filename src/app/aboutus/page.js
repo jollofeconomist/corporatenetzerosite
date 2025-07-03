@@ -164,6 +164,38 @@ export default function AboutUsPage() {
                     <span className={styles.tag}>Food Security</span>
                     <span className={styles.tag}>Research</span>
                   </div>
+                        
+                </div>
+              </motion.div>
+                        <motion.div className={styles.teamCard} variants={fadeInUp}>
+                <div className={styles.memberImageWrapper}>
+                  <Image
+                    src="/asset/Katherine.png"
+                    alt="Albert Boaitey"
+                    width={200}
+                    height={200}
+                    className={styles.memberImage}
+                  />
+                </div>
+                <div className={styles.memberInfo}>
+                  <h3 className={styles.memberName}>Katherine Scaling </h3>
+                  <p className={styles.memberRole}>case study support</p>
+                  <div className={styles.memberBio}>
+                    <p>
+                      Katherine contributes to the writing of the case studies.
+                      She holds a degree in Food Business Management and
+                      Marketing from Newcastle University and is currently part
+                      of Hilton Foods' Future Business Leaders Graduate Program.
+                      Katherine is passionate about food, farming,
+                      sustainability, and the decarbonisation of agri-food
+                      supply chains.
+                    </p>
+                  </div>
+                  <div className={styles.memberTags}>
+                    <span className={styles.tag}>Food</span>
+                    <span className={styles.tag}>Agriculture</span>
+                    <span className={styles.tag}>Agribusiness</span>
+                  </div>
                 </div>
               </motion.div>
             </div>
