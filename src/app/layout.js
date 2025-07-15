@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import { CompanyDataProvider } from "./context/CompanyDataContext";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
           {children}
           <ToastContainer position="top-right" autoClose={3000} />
         </CompanyDataProvider>
+        <Analytics />
       </body>
     </html>
   );
